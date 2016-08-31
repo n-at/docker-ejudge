@@ -9,6 +9,5 @@ if [ "$(ls -A $CONTEST_HOME)" ]; then
     echo "Contest directory is not empty. Leaving."
 else
     echo "Installing ejudge..."
-    chmod +x "${EJUDGE_INSTALL}"
-    "${EJUDGE_INSTALL}"
+    /bin/bash "${EJUDGE_INSTALL}"
 fi
