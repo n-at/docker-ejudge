@@ -7,6 +7,20 @@ System login and password are `ejudge:ejudge`.
 
 Data stored in `/home/ejudge`
 
+Building
+========
+
+    $ docker build -t ejudge .
+    
+Running
+=======
+
+    $ docker run -d \
+        --name ejudge \
+        -p 80:80 \
+        -v /opt/ejudge:/home/ejudge
+        ejudge
+
 License
 =======
 
