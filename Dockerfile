@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Alexey Nurgaliev <atnurgaliev@gmail.com>
 
+ENV LANG=C.UTF-8
 ENV DEBIAN_FRONTEND     noninteractive
 ENV APACHE_RUN_USER     www-data
 ENV APACHE_RUN_GROUP    www-data
@@ -15,11 +16,12 @@ ENV URL_FREEBASIC       http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-li
 ENV URL_EJUDGE          http://www.ejudge.ru/download/ejudge-3.5.2.tgz
 
 RUN cd /home &&\
+    locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
     apt-get update &&\
     apt-get install -y wget ncurses-base libncurses-dev libncursesw5 \
                        libncursesw5-dev expat libexpat1 libexpat1-dev \
                        zlib1g-dev libelf-dev \
-                       g++ gawk apache2 gettext fpc mc openjdk-8-jdk \
+                       g++ gawk apache2 gettext fpc mc openjdk-8-jdk-headless \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
                        mono-devel mono-runtime mono-vbnc php7.0-cli perl \
                        ruby python python3 gccgo &&\
