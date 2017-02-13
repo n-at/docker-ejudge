@@ -11,7 +11,7 @@ ENV APACHE_RUN_DIR      /var/run/apache2
 ENV APACHE_LOCK_DIR     /var/lock/apache2
 ENV APACHE_LOG_DIR      /var/log/apache2
 
-ENV URL_FREEBASIC       http://downloads.sourceforge.net/fbc/FreeBASIC-1.03.0-linux-x86_64.tar.gz?download
+ENV URL_FREEBASIC       http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download
 ENV URL_EJUDGE          http://www.ejudge.ru/download/ejudge-3.5.2.tgz
 
 RUN cd /home &&\
