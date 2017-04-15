@@ -7,6 +7,8 @@ System login and password are `ejudge:ejudge`.
 
 Data stored in `/home/ejudge`
 
+**There are issues with running PHP, Ruby and Go solutions.**
+
 Building
 ========
 
