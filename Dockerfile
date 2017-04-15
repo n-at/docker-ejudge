@@ -16,9 +16,8 @@ ENV URL_FREEBASIC       http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-li
 ENV URL_EJUDGE          http://www.ejudge.ru/download/ejudge-3.6.1.tgz
 
 RUN cd /home &&\
-    locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
     apt-get update &&\
-    apt-get install -y wget ncurses-base libncurses-dev libncursesw5 \
+    apt-get install -y locales wget ncurses-base libncurses-dev libncursesw5 \
                        libncursesw5-dev expat libexpat1 libexpat1-dev \
                        zlib1g-dev libelf-dev \
                        g++ gawk apache2 gettext fpc mc openjdk-8-jdk-headless \
@@ -26,6 +25,7 @@ RUN cd /home &&\
                        mono-devel mono-runtime mono-vbnc php7.0-cli perl \
                        ruby python python3 gccgo &&\
     \
+    locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
     wget -O freebasic.tar.gz "${URL_FREEBASIC}" &&\
     mkdir /opt/freebasic &&\
     tar -xvf freebasic.tar.gz -C /opt/freebasic --strip-components 1 &&\
