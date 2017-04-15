@@ -17,7 +17,7 @@ ENV URL_EJUDGE          http://www.ejudge.ru/download/ejudge-3.6.1.tgz
 
 RUN cd /home &&\
     apt-get update &&\
-    apt-get install -y locales wget ncurses-base libncurses-dev libncursesw5 \
+    apt-get install -y wget locales ncurses-base libncurses-dev libncursesw5 \
                        libncursesw5-dev expat libexpat1 libexpat1-dev \
                        zlib1g-dev libelf-dev \
                        g++ gawk apache2 gettext fpc mc openjdk-8-jdk-headless \
