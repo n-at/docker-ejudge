@@ -13,7 +13,7 @@ ENV APACHE_LOCK_DIR     /var/lock/apache2
 ENV APACHE_LOG_DIR      /var/log/apache2
 
 ENV URL_FREEBASIC       http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download
-ENV URL_EJUDGE          http://www.ejudge.ru/download/ejudge-3.6.5.tgz
+ENV URL_EJUDGE          http://www.ejudge.ru/download/ejudge-3.7.0.tgz
 
 RUN cd /home &&\
     apt-get update &&\
