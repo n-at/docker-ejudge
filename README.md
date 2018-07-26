@@ -7,7 +7,18 @@ System login and password are `ejudge:ejudge`.
 
 Data stored in `/home/ejudge`
 
-**There are issues with running PHP, Ruby and Go solutions.**
+Supported compilers:
+
+* Free Pascal
+* GNU C
+* GNU C++
+* Python 2
+* Python 3
+* Perl
+* Java
+* Mono C#
+* FreeBASIC
+* Kumir 2
 
 Building
 ========
