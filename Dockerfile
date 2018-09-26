@@ -19,7 +19,7 @@ ENV LANG="C.UTF-8" \
     EJUDGE_HOME_DIR="/home/ejudge" \
     \
     URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
-    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.7.7.tgz"
+    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.7.8.tgz"
 
 RUN cd /home &&\
     apt-get update &&\
