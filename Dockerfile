@@ -19,7 +19,7 @@ ENV LANG="C.UTF-8" \
     EJUDGE_HOME_DIR="/home/ejudge" \
     \
     URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
-    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.7.9.tgz"
+    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.8.0.tgz"
 
 RUN cd /home &&\
     apt-get update &&\
@@ -56,11 +56,15 @@ RUN cd /home &&\
                 --enable-contests-home-dir="${EJUDGE_HOME_DIR}" \
                 --with-httpd-cgi-bin-dir="${EJUDGE_CGI_DIR}" \
                 --with-httpd-htdocs-dir="${EJUDGE_HTDOCS_DIR}" \
+                --with-primary-user="ejudge" \
+                --with-exec-user="ejudge" \
+                --with-compile-user="ejudge" \
                 --enable-ajax \
                 --enable-charset=utf-8 &&\
     make &&\
     make install &&\
     chown -R ejudge:ejudge "${EJUDGE_BUILD_DIR}" &&\
+    "${EJUDGE_BUILD_DIR}/bin/ejudge-suid-setup" &&\
     \
     a2enmod cgi &&\
     rm /etc/apache2/sites-enabled/* &&\
