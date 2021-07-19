@@ -18,7 +18,6 @@ Supported compilers:
 * Java
 * Mono C#
 * FreeBASIC
-* Kumir 2
 
 Building
 ========
