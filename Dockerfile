@@ -19,7 +19,7 @@ ENV LANG="C.UTF-8" \
     EJUDGE_HOME_DIR="/home/ejudge" \
     \
     URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
-    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.8.0.tgz"
+    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.9.0.tgz"
 
 RUN cd /home &&\
     apt-get update &&\
@@ -27,8 +27,8 @@ RUN cd /home &&\
     apt-get update &&\
     apt-get install -y wget net-tools locales ncurses-base libncurses-dev libncursesw5 \
                        libncursesw5-dev expat libexpat1 libexpat1-dev \
-                       zlib1g-dev libelf-dev mysql-client libmysqlclient-dev \
-                       g++ gawk apache2 gettext fpc mc openjdk-8-jdk-headless \
+                       zlib1g-dev libelf-dev \
+                       g++ gawk apache2 gettext fpc mc openjdk-11-jdk-headless \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
                        mono-devel mono-runtime mono-vbnc perl python python3 \
                        &&\

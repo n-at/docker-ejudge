@@ -19,6 +19,8 @@ Supported compilers:
 * Mono C#
 * FreeBASIC
 
+Recommended to set "Language settings" - "Maximum VM size for compilers" to memory size of the machine.
+
 Building
 ========
 
