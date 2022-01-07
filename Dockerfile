@@ -27,7 +27,7 @@ RUN cd /home &&\
     apt-get update &&\
     apt-get install -y wget net-tools locales ncurses-base libncurses-dev libncursesw5 \
                        libncursesw5-dev expat libexpat1 libexpat1-dev \
-                       zlib1g-dev libelf-dev \
+                       zlib1g-dev libelf-dev mysql-client libmysqlclient-dev \
                        g++ gawk apache2 gettext fpc mc openjdk-11-jdk-headless \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
                        mono-devel mono-runtime mono-vbnc perl python python3 \
