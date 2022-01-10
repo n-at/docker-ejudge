@@ -16,7 +16,7 @@ ENV LANG="C.UTF-8" \
     EJUDGE_CGI_DIR="/var/www/ejudge/cgi-bin" \
     EJUDGE_HTDOCS_DIR="/var/www/ejudge/htdocs" \
     EJUDGE_BUILD_DIR="/opt/ejudge-build" \
-    EJUDGE_HOME_DIR="/home/ejudge" \
+    EJUDGE_HOME_DIR="/home/judges" \
     \
     URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
     URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.9.0.tgz"
@@ -74,6 +74,6 @@ ADD scripts /opt/scripts
 
 EXPOSE 80
 
-VOLUME ["/home/ejudge", "/var/www/ejudge/htdocs"]
+VOLUME ["/home/judges", "/var/www/ejudge/htdocs"]
 
 CMD ["/bin/bash", "/opt/scripts/run.sh"]

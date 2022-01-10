@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTEST_HOME="/home/ejudge"
+CONTEST_HOME="/home/judges"
 EJUDGE_INSTALL="/opt/scripts/install.sh"
 
 chown -R ejudge:ejudge "${CONTEST_HOME}"

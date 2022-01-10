@@ -5,7 +5,7 @@ This image contains [ejudge contest management system](https://ejudge.ru).
 
 System login and password are `ejudge`.
 
-Data stored in `/home/ejudge`
+Data stored in `/home/judges`
 
 Supported compilers:
 
@@ -32,7 +32,7 @@ Running
     $ docker run -d \
         --name ejudge \
         -p 80:80 \
-        -v /opt/ejudge:/home/ejudge
+        -v /opt/ejudge:/home/judges
         ejudge
 
 License
