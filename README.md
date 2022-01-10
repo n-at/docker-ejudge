@@ -12,11 +12,11 @@ Supported compilers:
 * Free Pascal
 * GNU C
 * GNU C++
+* Java 11
 * Python 2
 * Python 3
+* PHP 7.4
 * Perl
-* Java
-* Mono C#
 * FreeBASIC
 
 Recommended to set "Language settings" - "Maximum VM size for compilers" to memory size of the machine.

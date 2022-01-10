@@ -23,14 +23,11 @@ ENV LANG="C.UTF-8" \
 
 RUN cd /home &&\
     apt-get update &&\
-    apt-get install -y software-properties-common &&\
-    apt-get update &&\
-    apt-get install -y wget net-tools locales ncurses-base libncurses-dev libncursesw5 \
+    apt-get install -y wget mc nano apache2 net-tools locales ncurses-base libncurses-dev libncursesw5 \
                        libncursesw5-dev expat libexpat1 libexpat1-dev \
-                       zlib1g-dev libelf-dev \
-                       g++ gawk apache2 gettext fpc mc openjdk-11-jdk-headless \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
-                       mono-devel mono-runtime mono-vbnc perl python python3 \
+                       gettext gawk zlib1g-dev libelf-dev \
+                       g++ fpc openjdk-11-jdk-headless perl python python3 php7.4-cli \
                        &&\
     \
     locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
@@ -75,6 +72,6 @@ ADD scripts /opt/scripts
 
 EXPOSE 80
 
-VOLUME /home/ejudge
+VOLUME ["/home/ejudge", "/var/www/ejudge/htdocs"]
 
 CMD ["/bin/bash", "/opt/scripts/run.sh"]
