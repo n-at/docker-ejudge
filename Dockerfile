@@ -19,7 +19,7 @@ ENV LANG="C.UTF-8" \
     EJUDGE_HOME_DIR="/home/judges" \
     \
     URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
-    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.9.0.tgz"
+    URL_EJUDGE="https://github.com/blackav/ejudge/archive/refs/tags/v3.9.1.tar.gz"
 
 RUN cd /home &&\
     apt-get update &&\
@@ -45,10 +45,12 @@ RUN cd /home &&\
     useradd ejudge -r -s /bin/bash -g ejudge &&\
     mkdir -m 0777 -p "${EJUDGE_CGI_DIR}" "${EJUDGE_HTDOCS_DIR}" "${EJUDGE_BUILD_DIR}" &&\
     \
+    cd /opt &&\
     wget -O ejudge.tar.gz --no-check-certificate "${URL_EJUDGE}" &&\
-    tar -xvf ejudge.tar.gz -C /opt/ &&\
+    tar -xvf ejudge.tar.gz &&\
     rm ejudge.tar.gz &&\
-    cd /opt/ejudge &&\
+    mv ejudge-3.9.1 ejudge &&\
+    cd ejudge &&\
     ./configure --prefix="${EJUDGE_BUILD_DIR}" \
                 --enable-contests-home-dir="${EJUDGE_HOME_DIR}" \
                 --with-httpd-cgi-bin-dir="${EJUDGE_CGI_DIR}" \
