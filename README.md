@@ -12,10 +12,10 @@ Supported compilers:
 * Free Pascal
 * GNU C
 * GNU C++
-* Java 11
+* Java 17
 * Python 2
 * Python 3
-* PHP 7.4
+* PHP 8.1
 * Perl
 * FreeBASIC
 

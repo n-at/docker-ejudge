@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 MAINTAINER Alexey Nurgaliev <atnurgaliev@gmail.com>
 
@@ -19,7 +19,7 @@ ENV LANG="C.UTF-8" \
     EJUDGE_HOME_DIR="/home/ejudge" \
     \
     URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
-    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.9.0.tgz"
+    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.10.0.tgz"
 
 RUN cd /home &&\
     apt-get update &&\
@@ -27,7 +27,7 @@ RUN cd /home &&\
                        libncursesw5-dev expat libexpat1 libexpat1-dev \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
                        gettext gawk zlib1g-dev libelf-dev \
-                       g++ fpc openjdk-11-jdk-headless perl python python3 php7.4-cli \
+                       g++ fpc openjdk-17-jdk-headless perl python2 python3 php8.1-cli \
                        &&\
     \
     locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
