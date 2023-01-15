@@ -1,7 +1,7 @@
 Docker image with ejudge contest management system
 ==================================================
 
-This image contains [ejudge contest management system](https://ejudge.ru).
+This image contains [ejudge contest management system](https://ejudge.ru) 3.9.0.
 
 System login and password are `ejudge`.
 
