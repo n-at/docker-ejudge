@@ -19,7 +19,7 @@ ENV LANG="C.UTF-8" \
     EJUDGE_HOME_DIR="/home/ejudge" \
     \
     URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
-    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.10.0.tgz"
+    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.10.1.tgz"
 
 RUN cd /home &&\
     apt-get update &&\
@@ -56,8 +56,8 @@ RUN cd /home &&\
                 --with-compile-user="ejudge" \
                 --enable-ajax \
                 --enable-charset=utf-8 &&\
-    make &&\
-    make install &&\
+    make RELEASE=1 &&\
+    make RELEASE=1 install &&\
     chown -R ejudge:ejudge "${EJUDGE_BUILD_DIR}" &&\
     "${EJUDGE_BUILD_DIR}/bin/ejudge-suid-setup" &&\
     \
