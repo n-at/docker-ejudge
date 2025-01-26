@@ -1,5 +1,4 @@
-Docker image with ejudge contest management system
-==================================================
+# Docker image with ejudge contest management system
 
 (See also an official docker image: https://github.com/blackav/ejudge/blob/master/Dockerfile)
 
@@ -14,7 +13,7 @@ Supported compilers:
 * Free Pascal
 * GNU C
 * GNU C++
-* Java 17
+* Java 21
 * Python 2
 * Python 3
 * PHP 8.1
@@ -23,21 +22,22 @@ Supported compilers:
 
 Recommended to set "Language settings" - "Maximum VM size for compilers" to memory size of the machine.
 
-Building
-========
+## Building
 
-    $ docker build -t ejudge .
-    
-Running
-=======
+```bash
+docker build -t ejudge .
+```
 
-    $ docker run -d \
+## Running
+
+```bash
+    docker run -d \
         --name ejudge \
         -p 80:80 \
         -v /opt/ejudge:/home/ejudge
         ejudge
+```
 
-License
-=======
+## License
 
 BSD, see `LICENSE`

@@ -1,7 +1,5 @@
 FROM ubuntu:22.04
 
-MAINTAINER Alexey Nurgaliev <atnurgaliev@gmail.com>
-
 ENV LANG="C.UTF-8" \
     DEBIAN_FRONTEND="noninteractive" \
     \
@@ -17,17 +15,18 @@ ENV LANG="C.UTF-8" \
     EJUDGE_HTDOCS_DIR="/var/www/ejudge/htdocs" \
     EJUDGE_BUILD_DIR="/opt/ejudge-build" \
     EJUDGE_HOME_DIR="/home/ejudge" \
+    EJUDGE_SPOOL_DIR="/opt/ejudge-spool" \
     \
-    URL_FREEBASIC="http://downloads.sourceforge.net/fbc/FreeBASIC-1.05.0-linux-x86_64.tar.gz?download" \
-    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.11.0.tgz"
+    URL_FREEBASIC="https://local.doublebyte.ru/static/FreeBASIC-1.10.1-linux-x86_64.tar.gz" \
+    URL_EJUDGE="http://www.ejudge.ru/download/ejudge-3.13.0.tgz"
 
 RUN cd /home &&\
     apt-get update &&\
     apt-get install -y wget mc nano apache2 net-tools locales ncurses-base libncurses-dev libncursesw5 \
-                       libncursesw5-dev expat libexpat1 libexpat1-dev \
+                       libncursesw5-dev expat libexpat1 libexpat1-dev libmongoc-dev libmysqlclient-dev \
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
                        gettext gawk zlib1g-dev libelf-dev \
-                       g++ fpc openjdk-17-jdk-headless perl python2 python3 php8.1-cli \
+                       g++ fpc openjdk-21-jdk-headless perl python2 python3 php8.1-cli \
                        &&\
     \
     locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\
@@ -41,7 +40,7 @@ RUN cd /home &&\
     \
     groupadd ejudge &&\
     useradd ejudge -r -s /bin/bash -g ejudge &&\
-    mkdir -m 0777 -p "${EJUDGE_CGI_DIR}" "${EJUDGE_HTDOCS_DIR}" "${EJUDGE_BUILD_DIR}" &&\
+    mkdir -m 0777 -p "${EJUDGE_CGI_DIR}" "${EJUDGE_HTDOCS_DIR}" "${EJUDGE_BUILD_DIR}" "${EJUDGE_SPOOL_DIR}" &&\
     \
     wget -O ejudge.tar.gz --no-check-certificate "${URL_EJUDGE}" &&\
     tar -xvf ejudge.tar.gz -C /opt/ &&\
@@ -49,6 +48,7 @@ RUN cd /home &&\
     cd /opt/ejudge &&\
     ./configure --prefix="${EJUDGE_BUILD_DIR}" \
                 --enable-contests-home-dir="${EJUDGE_HOME_DIR}" \
+                --enable-compile-spool-dir="${EJUDGE_SPOOL_DIR}" \
                 --with-httpd-cgi-bin-dir="${EJUDGE_CGI_DIR}" \
                 --with-httpd-htdocs-dir="${EJUDGE_HTDOCS_DIR}" \
                 --with-primary-user="ejudge" \
@@ -72,6 +72,6 @@ ADD scripts /opt/scripts
 
 EXPOSE 80
 
-VOLUME ["/home/ejudge", "/var/www/ejudge/htdocs"]
+VOLUME ["/home/ejudge", "/var/www/ejudge/htdocs", "/opt/ejudge-spool"]
 
 CMD ["/bin/bash", "/opt/scripts/run.sh"]
