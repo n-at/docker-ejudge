@@ -27,6 +27,7 @@ RUN cd /home &&\
                        libcurl4-openssl-dev libzip-dev uuid-dev bison flex \
                        gettext gawk zlib1g-dev libelf-dev \
                        g++ fpc openjdk-21-jdk-headless perl python2 python3 php8.1-cli \
+                       gccgo golang ruby mono-mcs mono-vbnc \
                        &&\
     \
     locale-gen en_US.UTF-8 ru_RU.UTF-8 &&\

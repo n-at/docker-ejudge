@@ -18,7 +18,10 @@ Supported compilers:
 * Python 3
 * PHP 8.1
 * Perl
+* Ruby
 * FreeBASIC
+* Mono C#
+* Mono VB.NET
 
 Recommended to set "Language settings" - "Maximum VM size for compilers" to memory size of the machine.
 
